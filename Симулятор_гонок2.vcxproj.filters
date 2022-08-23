@@ -36,9 +36,6 @@
     <ClCompile Include="Transport.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Ubludok.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Verblud.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -49,6 +46,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Bot_skorohod.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,9 +71,6 @@
     <ClInclude Include="Transport.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="Ubludok.h">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="Verblud.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
@@ -84,6 +81,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Bot_skorohod.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="All_Transport.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

@@ -130,18 +130,28 @@
     <ClCompile Include="Air_Transport.cpp" />
     <ClCompile Include="Bot_skorohod.cpp" />
     <ClCompile Include="Earth_Transport.cpp" />
+    <ClCompile Include="Menu.cpp">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Kentavr.cpp" />
     <ClCompile Include="Kover_Samolet.cpp" />
     <ClCompile Include="Metla.cpp" />
     <ClCompile Include="Orel.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Transport.cpp" />
-    <ClCompile Include="Ubludok.cpp" />
     <ClCompile Include="Verblud.cpp" />
     <ClCompile Include="Verblud_fast.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Air_Transport.h" />
+    <ClInclude Include="All_Transport.h" />
     <ClInclude Include="Bot_skorohod.h" />
     <ClInclude Include="Earth_Transport.h" />
     <ClInclude Include="Kentavr.h" />
@@ -149,7 +159,6 @@
     <ClInclude Include="Metla.h" />
     <ClInclude Include="Orel.h" />
     <ClInclude Include="Transport.h" />
-    <ClInclude Include="Ubludok.h" />
     <ClInclude Include="Verblud.h" />
     <ClInclude Include="Verblud_fast.h" />
   </ItemGroup>
