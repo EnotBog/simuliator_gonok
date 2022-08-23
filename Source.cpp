@@ -1,9 +1,7 @@
 ﻿#include <iostream>
 #include <windows.h>
 #include <locale.h>
-#include <list>
 #include "Menu.cpp"
-#include "All_Transport.h"
 
 
 int main(int argc, char** argv)

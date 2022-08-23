@@ -8,7 +8,7 @@ class Menu
 {
 public:
 	Menu() {}
-	void menu1()
+	void menu1() const
 	{
 		std::cout << " 1. Гонка для наземного транспорта " << "\n" << " 2. Гонка для воздушного транспорта " << "\n" << " 3. Гонка для наземного и воздушного транспорта" << "\n" << " Выберите тип гонки: ";
 
@@ -76,7 +76,7 @@ public:
 		return true;
 	}
 
-	void menu3()
+	void menu3() const
 	{
 		std::cout << "Должно быть зарегистрированно минимум 2 транспортных средства \n"
 			"1. Зарегистрировать транспортное средство \n"
@@ -101,7 +101,7 @@ public:
 		}
 	}
 
-	void menu4(std::string& buf_string)
+	void menu4(std::string& buf_string) const
 	{
 		std::cout << buf_string << std::endl;
 		std::cout <<
@@ -116,7 +116,7 @@ public:
 			"Выберите транспорт или 0 для окончания процесса регистрации: \n";
 	}
 
-	bool menu4_in(std::string& buf_string, int& distance, int& count, int& game_type, std::string** transports)
+	bool menu4_in(std::string& buf_string,const int& distance, int& count,const int& game_type, std::string** transports)
 	{
 
 
@@ -301,7 +301,7 @@ public:
 
 
 
-	void menu5()
+	void menu5() const
 	{
 		std::cout << "1. Зарегистрировать транспорт \n"
 			"2. Начать гонку  \n"
@@ -336,7 +336,7 @@ public:
 	}
 
 
-	bool menu_results(std::string** transports, int rows)
+	bool menu_results(std::string** transports, int rows) const
 	{
 		//func_sort(transports);
 
@@ -397,15 +397,3 @@ public:
 
 
 
-//std::cout << buf_string << std::endl;
-//
-//std::cout <<
-//"1. Ботинки-вездеходы \n"
-//"2. Метла \n"
-//"3. Верблюд \n"
-//"4. Кентавр \n"
-//"5. Орел \n"
-//"6. Верблюд-быстроход \n"
-//"7. Ковёр-самолёт \n"
-//"0. Закончить регистрацию\n"
-//"Выберите транспорт или 0 для окончания процесса регистрации: \n";
