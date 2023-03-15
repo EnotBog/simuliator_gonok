@@ -2,12 +2,33 @@
 #include <string>
 #include <stdlib.h>
 #include "All_Transport.h"
+#include <map>
+
+
 
 
 class Menu
 {
 public:
 	Menu() {}
+
+	//void swap_mass(std::string** mass, int& left, int& right)//если левый элемент больше правого 
+	//{
+	//	std::string buf[1][3];
+
+
+	//	for (int i = 0; i < 3; i++)
+	//	{
+	//		buf[0][i] = mass[left][i];
+	//	}
+
+	//	for (int i = 0; i < 3; i++)
+	//	{
+	//		mass[left][i] = mass[right][i];
+	//		mass[right][i] = buf[0][i];
+	//	}
+	//}
+
 	void menu1() const
 	{
 		std::cout << " 1. Гонка для наземного транспорта " << "\n" << " 2. Гонка для воздушного транспорта " << "\n" << " 3. Гонка для наземного и воздушного транспорта" << "\n" << " Выберите тип гонки: ";
@@ -25,6 +46,8 @@ public:
 			{
 				std::cerr << "Неизвестный тип данных! \n";
 				std::cin.clear();
+				std::string buf_cin;
+				getline(std::cin, buf_cin);
 				std::cin.ignore();
 				continue;
 			}
@@ -59,11 +82,15 @@ public:
 			std::cin >> buf;
 			if (std::cin.fail())
 			{
-				std::cerr << "Неверный тип данных \n";
+				std::cerr << " Введен неверный формат данных! \n";
 				std::cin.clear();
+				std::string buf_cin;
+				getline(std::cin, buf_cin);
 				std::cin.ignore();
 				continue;
 			}
+		
+
 			if (buf <= 0) { return false; }
 			else
 			{
@@ -89,8 +116,10 @@ public:
 		std::cin >> buf;
 		if (std::cin.fail())
 		{
-			std::cerr << "Неверный тип данных! \n";
+			std::cerr << "Неизвестный тип данных! \n";
 			std::cin.clear();
+			std::string buf_cin;
+			getline(std::cin, buf_cin);
 			std::cin.ignore();
 			return false;
 		}
@@ -116,7 +145,7 @@ public:
 			"Выберите транспорт или 0 для окончания процесса регистрации: \n";
 	}
 
-	bool menu4_in(std::string& buf_string,const int& distance, int& count,const int& game_type, std::string** transports)
+	bool menu4_in(std::string& buf_string,const int& distance, int& count,const int& game_type, std::string** transports, std::map<std::string, std::string> &map_transports )
 	{
 
 
@@ -130,6 +159,8 @@ public:
 			{
 				std::cerr << " Введен неверный формат данных! \n";
 				std::cin.clear();
+				std::string buf_cin;
+				getline(std::cin, buf_cin);
 				std::cin.ignore();
 				continue;
 			}
@@ -152,6 +183,9 @@ public:
 				{
 					Bot_skorohod botinok; transports[0][1] = std::to_string(botinok.metod_finish(distance)); buf_string = buf_string + " " + transports[0][0]; transports[0][2] = "1";
 					std::cout << transports[0][0] << " успешно зарегистрированны! \n "; count += 1;
+
+					map_transports[std::to_string(botinok.metod_finish(distance))] =  transports[0][0];//// СМОТРИ СЮДА ТУТ МАП.
+
 					continue;
 				}
 				else
@@ -174,6 +208,9 @@ public:
 				{
 					Metla metla;  transports[1][1] = std::to_string(metla.metod_finish(distance)); buf_string = buf_string + " " + transports[1][0]; transports[1][2] = "1";
 					std::cout << transports[1][0] << " успешно зарегистрированны! \n "; count += 1;
+					
+					map_transports[std::to_string(metla.metod_finish(distance))] =  transports[1][0];
+
 					continue;
 				}
 				else
@@ -197,6 +234,9 @@ public:
 				{
 					Verblud verblud;  transports[2][1] = std::to_string(verblud.metod_finish(distance)); buf_string = buf_string + " " + transports[2][0]; transports[2][2] = "1";
 					std::cout << transports[2][0] << " успешно зарегистрированны! \n "; count += 1;
+					
+					map_transports[std::to_string(verblud.metod_finish(distance))] = transports[2][0];
+
 					continue;
 				}
 				else
@@ -219,6 +259,9 @@ public:
 				{
 					Kentavr kentavr;  transports[3][1] = std::to_string(kentavr.metod_finish(distance)); buf_string = buf_string + " " + transports[3][0]; transports[3][2] = "1";
 					std::cout << transports[3][0] << " успешно зарегистрированны! \n "; count += 1;
+					
+					map_transports[std::to_string(kentavr.metod_finish(distance))] = transports[3][0];
+
 					continue;
 				}
 				else
@@ -238,6 +281,9 @@ public:
 				{
 					Orel orel;  transports[4][1] = std::to_string(orel.metod_finish(distance)); buf_string = buf_string + " " + transports[4][0]; transports[4][2] = "1";
 					std::cout << transports[4][0] << " успешно зарегистрированны! \n "; count += 1;
+					
+					map_transports[std::to_string(orel.metod_finish(distance))] =  transports[4][0];
+
 					continue;
 				}
 				else
@@ -260,6 +306,9 @@ public:
 				{
 					Verblud_fast verblud_fast;  transports[5][1] = std::to_string(verblud_fast.metod_finish(distance)); buf_string = buf_string + " " + transports[5][0]; transports[5][2] = "1";
 					std::cout << transports[5][0] << " успешно зарегистрированны! \n "; count += 1;
+					
+					map_transports[std::to_string(verblud_fast.metod_finish(distance))] =  transports[5][0];
+
 					continue;
 				}
 				else
@@ -279,6 +328,9 @@ public:
 				{
 					Kover_Samolet kover_samolet;  transports[6][1] = std::to_string(kover_samolet.metod_finish(distance)); buf_string = buf_string + " " + transports[6][0]; transports[6][2] = "1";
 					std::cout << transports[1][0] << " успешно зарегистрированны! \n "; count += 1;
+					
+					map_transports[std::to_string(kover_samolet.metod_finish(distance))] =  transports[6][0];
+
 					continue;
 				}
 				else
@@ -319,6 +371,8 @@ public:
 			{
 				std::cerr << "Неверный формат данных! \n";
 				std::cin.clear();
+				std::string buf_cin;
+				getline(std::cin, buf_cin);
 				std::cin.ignore();
 				continue;
 
@@ -336,23 +390,23 @@ public:
 	}
 
 
-	bool menu_results(std::string** transports, int rows) const
+		/*
+		for (int i = 0; i < rows - 1; i++)
+	bool menu_results(std::string** transports, int rows) const   
 	{
 		//func_sort(transports);
 
-		std::cout << "Результаты гонки: \n";
+	
 
-
-
-		for (int i = 0; i < rows - 1; i++)
+		
 		{
 			if (transports[i][2] == "1") { std::cout << transports[i][0] << " " << transports[i][1] << std::endl; }
 		}
 
 		std::cout << std::endl;
-		return true;
 	}
-
+		return true;
+		*/
 	int menu6_in()
 	{
 		int buf = 66;
@@ -375,22 +429,6 @@ public:
 
 
 
-	/*void func_sort_piv(std::string transports[7][3], int pi)
-	{
-		pi = std::stoi(transports[3][2]);
-		int left = 0;
-		int right = 6;
-
-		while (true)
-		{
-
-		while (std::stoi(transports[left][2])<pi)
-		{
-
-
-		}
-
-		}*/
 
 
 	
