@@ -5,7 +5,7 @@ class Earth_Transport :protected Transport
 public:
     Earth_Transport();
 
-   virtual int metod_finish(const int distance);
+   virtual double metod_finish(const int distance);
 
 protected:
     Earth_Transport(std::string name, int speed, int stamina);

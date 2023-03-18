@@ -11,5 +11,5 @@ Metla::Metla(std::string name, int speed) :Air_Transport(name, speed) {}
 
 double Metla::metod_sokrashenia(const int distance)
 {
-    return ((100.00 - floor((distance / 1000))) / 100) * distance;  //увеличивается на 1% за каждую 1000 у.е. расстояния  например, для расстояния 5600 коэффициент будет 5 %
+    return ((100.00 - floor((distance / 1000.00))) / 100.00) * distance;  //увеличивается на 1% за каждую 1000 у.е. расстояния  например, для расстояния 5600 коэффициент будет 5 %
 }

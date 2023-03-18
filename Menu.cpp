@@ -1,5 +1,6 @@
 ﻿#include <iostream>
-#include <string>
+
+
 #include <stdlib.h>
 #include "All_Transport.h"
 #include <map>
@@ -11,23 +12,6 @@ class Menu
 {
 public:
 	Menu() {}
-
-	//void swap_mass(std::string** mass, int& left, int& right)//если левый элемент больше правого 
-	//{
-	//	std::string buf[1][3];
-
-
-	//	for (int i = 0; i < 3; i++)
-	//	{
-	//		buf[0][i] = mass[left][i];
-	//	}
-
-	//	for (int i = 0; i < 3; i++)
-	//	{
-	//		mass[left][i] = mass[right][i];
-	//		mass[right][i] = buf[0][i];
-	//	}
-	//}
 
 	void menu1() const
 	{
@@ -389,24 +373,6 @@ public:
 
 	}
 
-
-		/*
-		for (int i = 0; i < rows - 1; i++)
-	bool menu_results(std::string** transports, int rows) const   
-	{
-		//func_sort(transports);
-
-	
-
-		
-		{
-			if (transports[i][2] == "1") { std::cout << transports[i][0] << " " << transports[i][1] << std::endl; }
-		}
-
-		std::cout << std::endl;
-	}
-		return true;
-		*/
 	int menu6_in()
 	{
 		int buf = 66;

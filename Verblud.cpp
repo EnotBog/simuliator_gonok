@@ -2,9 +2,9 @@
 
 Verblud::Verblud() :Verblud("verblud", 10, 30) {}
 
-int Verblud::metod_finish(const int distance) 
+double Verblud::metod_finish(const int distance) 
 {
-    int times = distance / (speed_transport); // чистое время без остановок
+    double times = static_cast<double>(distance) / speed_transport; // чистое время без остановок
     return  times + metod_relax(distance, times);// добавляем время с остановками
 }
 
@@ -12,10 +12,11 @@ Verblud::Verblud(std::string name, int speed, int stamina) :Earth_Transport(name
 {
 }
 
-int Verblud::metod_relax(const int distance, const int times) //метод вычисления общего времени остановок
+double Verblud::metod_relax(const int distance, const int times) //метод вычисления общего времени остановок
 {
-    int time_relax = 0;
-    int buf = times / stamina_transport; // колличество остановок
+    double time_relax = 0;
+    //int buf = times / stamina_transport; // колличество остановок
+    int buf = (times % stamina_transport == 0) ? times / stamina_transport - 1 : times / stamina_transport; //если последняя остановка приходится на финишь
     int count = (buf == 0) ? 1 :
         (buf < 0 && buf <= 1) ? 2 :
         (buf >= 2) ? 3 :
@@ -29,9 +30,6 @@ int Verblud::metod_relax(const int distance, const int times) //метод вы�
         break;
     case 3: time_relax = (buf - 1) * 8 + 5; // если отдыха было более 1 раза (8 у.е)
         break;
-        // case 4: time_relax = 0.95; // если больше  10000
-           //  break;
-             //case 5: throw {};
     }
     return time_relax;
 }

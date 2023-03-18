@@ -7,10 +7,10 @@ Bot_skorohod::Bot_skorohod(const std::string& name, const int speed, const int s
 
 }
 
-int Bot_skorohod::metod_finish(const int distance) 
+double Bot_skorohod::metod_finish(const int distance) 
 {
-    int times = distance / (speed_transport); // чистое время без остановок
-    return  times + metod_relax(distance, times);// добавляем время с остановками
+    double times = (static_cast<double>  (distance) / speed_transport); // чистое время без остановок
+    return times + metod_relax(distance, times);// добавляем время с остановками
 }
 
 int Bot_skorohod::metod_relax(const int distance, const int times) //метод вычисления общего времени остановок

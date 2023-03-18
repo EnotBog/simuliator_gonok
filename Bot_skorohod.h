@@ -6,7 +6,7 @@ public:
 
     Bot_skorohod();
 
-    int metod_finish(const int distance) override;
+    double metod_finish(const int distance) override;
 
 protected:
 

@@ -13,4 +13,4 @@ Earth_Transport::Earth_Transport(std::string name, int speed, int stamina) :Tran
     stamina_transport = stamina;
 }
 
-int Earth_Transport::metod_finish(const int distance) { return 0; }
+double Earth_Transport::metod_finish(const int distance) { return 0; }

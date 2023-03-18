@@ -5,7 +5,7 @@ class Kentavr : protected Earth_Transport
 public:
     Kentavr();
 
-    int metod_finish(const int distance) override;
+    double metod_finish(const int distance) override;
 protected:
 
 

@@ -6,9 +6,9 @@ Kentavr::Kentavr(std::string name, int speed, int stamina) :Earth_Transport(name
 {
 }
 
-int Kentavr::metod_finish(const int distance)
+double Kentavr::metod_finish(const int distance)
 {
-    int times = distance / (speed_transport); // чистое время без остановок
+    double times = static_cast<double>(distance) / speed_transport; // чистое время без остановок
     return  times + metod_relax(distance, times);// добавляем время с остановками
 }
 

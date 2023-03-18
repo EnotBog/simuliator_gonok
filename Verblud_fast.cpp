@@ -1,9 +1,10 @@
-﻿#include "Verblud_fast.h"
+﻿
+#include "Verblud_fast.h"
 Verblud_fast::Verblud_fast() :Verblud_fast("verblud", 40, 10) {}
 
-int Verblud_fast::metod_finish(const int distance) 
+double Verblud_fast::metod_finish(const int distance) 
 {
-    int times = distance / (speed_transport); // чистое время без остановок
+    double times = (static_cast<double>(distance) / speed_transport); // чистое время без остановок
     return  times + metod_relax(distance, times);// добавляем время с остановками
 }
 
@@ -12,9 +13,9 @@ Verblud_fast::Verblud_fast(const std::string &name,const int speed,const int sta
 
 }
 
-int Verblud_fast::metod_relax(const int distance,const int times) //метод вычисления общего времени остановок
+double Verblud_fast::metod_relax(const int distance,const int times) //метод вычисления общего времени остановок
 {
-    int time_relax = 0; //общее время отдыха
+    double time_relax = 0; //общее время отдыха
 
     int buf = times / stamina_transport; // колличество остановок
 
