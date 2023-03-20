@@ -129,7 +129,7 @@ public:
 			"Выберите транспорт или 0 для окончания процесса регистрации: \n";
 	}
 
-	bool menu4_in(std::string& buf_string,const int& distance, int& count,const int& game_type, std::string** transports, std::map<std::string, std::string> &map_transports )
+	bool menu4_in(std::string& buf_string,const int& distance, int& count,const int& game_type, std::string** transports)
 	{
 
 
@@ -168,8 +168,9 @@ public:
 					Bot_skorohod botinok; transports[0][1] = std::to_string(botinok.metod_finish(distance)); buf_string = buf_string + " " + transports[0][0]; transports[0][2] = "1";
 					std::cout << transports[0][0] << " успешно зарегистрированны! \n "; count += 1;
 
-					map_transports[std::to_string(botinok.metod_finish(distance))] =  transports[0][0];//// СМОТРИ СЮДА ТУТ МАП.
-
+					//map_transports[std::to_string(botinok.metod_finish(distance))] =  transports[0][0];//// СМОТРИ СЮДА ТУТ МАП.
+					//////////////////////Клюююч//////////////////////////////////////////значение
+					//
 					continue;
 				}
 				else
@@ -178,7 +179,6 @@ public:
 					continue;
 				}
 			}
-
 
 
 			if (buf == 2)
@@ -193,7 +193,7 @@ public:
 					Metla metla;  transports[1][1] = std::to_string(metla.metod_finish(distance)); buf_string = buf_string + " " + transports[1][0]; transports[1][2] = "1";
 					std::cout << transports[1][0] << " успешно зарегистрированны! \n "; count += 1;
 					
-					map_transports[std::to_string(metla.metod_finish(distance))] =  transports[1][0];
+					//map_transports[std::to_string(metla.metod_finish(distance))] =  transports[1][0];
 
 					continue;
 				}
@@ -203,8 +203,6 @@ public:
 					continue;
 				}
 			}
-
-
 
 			if (buf == 3)
 			{
@@ -219,7 +217,7 @@ public:
 					Verblud verblud;  transports[2][1] = std::to_string(verblud.metod_finish(distance)); buf_string = buf_string + " " + transports[2][0]; transports[2][2] = "1";
 					std::cout << transports[2][0] << " успешно зарегистрированны! \n "; count += 1;
 					
-					map_transports[std::to_string(verblud.metod_finish(distance))] = transports[2][0];
+					//map_transports[std::to_string(verblud.metod_finish(distance))] = transports[2][0];
 
 					continue;
 				}
@@ -228,8 +226,6 @@ public:
 					std::cerr << transports[2][0] << " уже зарегистрирован \n";
 				}
 			}
-
-
 
 			if (buf == 4)
 			{
@@ -244,7 +240,7 @@ public:
 					Kentavr kentavr;  transports[3][1] = std::to_string(kentavr.metod_finish(distance)); buf_string = buf_string + " " + transports[3][0]; transports[3][2] = "1";
 					std::cout << transports[3][0] << " успешно зарегистрированны! \n "; count += 1;
 					
-					map_transports[std::to_string(kentavr.metod_finish(distance))] = transports[3][0];
+					//map_transports[std::to_string(kentavr.metod_finish(distance))] = transports[3][0];
 
 					continue;
 				}
@@ -266,7 +262,7 @@ public:
 					Orel orel;  transports[4][1] = std::to_string(orel.metod_finish(distance)); buf_string = buf_string + " " + transports[4][0]; transports[4][2] = "1";
 					std::cout << transports[4][0] << " успешно зарегистрированны! \n "; count += 1;
 					
-					map_transports[std::to_string(orel.metod_finish(distance))] =  transports[4][0];
+				//	map_transports[std::to_string(orel.metod_finish(distance))] =  transports[4][0];
 
 					continue;
 				}
@@ -276,7 +272,6 @@ public:
 					continue;
 				}
 			}
-
 
 			if (buf == 6)
 			{
@@ -291,7 +286,7 @@ public:
 					Verblud_fast verblud_fast;  transports[5][1] = std::to_string(verblud_fast.metod_finish(distance)); buf_string = buf_string + " " + transports[5][0]; transports[5][2] = "1";
 					std::cout << transports[5][0] << " успешно зарегистрированны! \n "; count += 1;
 					
-					map_transports[std::to_string(verblud_fast.metod_finish(distance))] =  transports[5][0];
+					//map_transports[std::to_string(verblud_fast.metod_finish(distance))] =  transports[5][0];
 
 					continue;
 				}
@@ -313,7 +308,7 @@ public:
 					Kover_Samolet kover_samolet;  transports[6][1] = std::to_string(kover_samolet.metod_finish(distance)); buf_string = buf_string + " " + transports[6][0]; transports[6][2] = "1";
 					std::cout << transports[1][0] << " успешно зарегистрированны! \n "; count += 1;
 					
-					map_transports[std::to_string(kover_samolet.metod_finish(distance))] =  transports[6][0];
+					//map_transports[std::to_string(kover_samolet.metod_finish(distance))] =  transports[6][0];
 
 					continue;
 				}
@@ -323,7 +318,6 @@ public:
 					continue;
 				}
 			}
-
 
 			if (buf < 0 || buf>8)
 			{

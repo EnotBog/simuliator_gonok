@@ -2,14 +2,41 @@
 #include <windows.h>
 #include <locale.h>
 #include "Menu.cpp"
+#include <iomanip>   /// setw()
 
-/// поменять местами ключ и занчение стоит
+
+void sort2arr(std::string** arr)
+{
+
+	for (int i = 0; i < 7; i++)
+	{
+		for (int j = 0; j < 7; j++)
+		{
+			std::string arr2[1][3];
+			if (arr[i][1] < arr[j][1]) 
+			{
+				arr2[0][0] = arr[i][0];
+				arr2[0][1] = arr[i][1];
+				arr2[0][2] = arr[i][2];
+
+				arr[i][0] = arr[j][0];
+				arr[i][1] = arr[j][1];
+				arr[i][2] = arr[j][2];
+
+				arr[j][0] = arr2[0][0];
+				arr[j][1] = arr2[0][1];
+				arr[j][2] = arr2[0][2];
+
+			}
+		}
+	}
+
+}
 
 
 
 int main(int argc, char** argv)
 {
-
 
 	//SetConsoleOutputCP(65001);
 	SetConsoleCP(1251);
@@ -18,9 +45,7 @@ int main(int argc, char** argv)
 	const int rows = 7;
 	const int colums = 3;
 
-	std::map <std::string, std::string> map_transports; // 
-
-	std::string** p_transports = new std::string * [rows]; // 1 имя 2 результат 3 индикатор
+	std::string** p_transports = new std::string * [rows]; // 0 имя 1 результат 2 индикатор
 
 	std::string transports2[7] = { "Ботинки-вездеходы","Метла", "Верблюд", "Кентавр", "Орел", "Верблюд-быстроход", "Ковёр-самолёт" };
 
@@ -96,7 +121,7 @@ int main(int argc, char** argv)
 			while (true)
 			{
 
-				if (menu.menu4_in(buf_string, distance, count, game_type, p_transports, map_transports))
+				if (menu.menu4_in(buf_string, distance, count, game_type, p_transports))
 				{
 					std::cout << std::endl;
 					break;
@@ -118,7 +143,7 @@ int main(int argc, char** argv)
 				buf_int = menu.menu5_in();
 
 				if (buf_int == 1) 
-				{ menu.menu4_in(buf_string, distance, count, game_type, p_transports, map_transports); }
+				{ menu.menu4_in(buf_string, distance, count, game_type, p_transports); }
 					else if (buf_int == 2) 
 					{ std::cout << std::endl; break; }
 		
@@ -131,20 +156,18 @@ int main(int argc, char** argv)
 			while (true)
 			{
 				std::cout << "Результаты гонки: \n";
-				unsigned i = 1;
-				for (const auto& kv : map_transports) /// ПЕРЕПИСАТЬ ЧТО БЫ БЫЛ ИНКРЕМЕН I
+				sort2arr(p_transports);
+				
+				for (int i = 0, count = 1; i < rows; i++)
 				{
-					
-					std::cout << i<<". " << kv.first << " has value " << kv.second << std::endl;
-					i++;
+					if (p_transports[i][2] == "1")
+					{
+			std::cout << count << ". " << std::setiosflags(std::ios::left) << std::setw(20) <<  p_transports[i][0] <<  " has value " << "\t" << stod(p_transports[i][1]) << std::endl;
+						count++;
+					}
 				}
 
-
-			/*	if (menu.menu_results(p_transports, rows))
-				{
-					break;
-				};*/
-				break;
+			break;
 			}
 			//menu results
 			std::cout << std::endl;
@@ -155,10 +178,11 @@ int main(int argc, char** argv)
 
 						if (buf_int == 1)
 						{
-							for (int i = 0; i < rows - 1; i++)
+							for (int i = 0; i < rows; i++)
 							{
 								p_transports[i][1] = "0";
 								p_transports[i][2] = "0";
+								p_transports[i][0] = transports2[i];
 							}
 
 								count = 0;
@@ -166,8 +190,7 @@ int main(int argc, char** argv)
 								buf = 0;
 								buf_string = "";
 								game_type = 0;
-								map_transports.clear();
-						break;
+								break;
 						}
 											
 							// то запускаем очистку результатов
@@ -179,6 +202,7 @@ int main(int argc, char** argv)
 							{
 								delete[]p_transports[i];
 							}
+							delete[]p_transports;
 
 							// удаляем всё к чертям 
 							return 0;
@@ -190,10 +214,7 @@ int main(int argc, char** argv)
 						}
 						break;
 					}
-			
-
 		}
 		
-
 	return 0;
 }
